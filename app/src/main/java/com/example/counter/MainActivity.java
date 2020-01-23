@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView counterText;
     private Button counterButton;
     private String currentCounter;
+    private int intCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,20 @@ public class MainActivity extends AppCompatActivity {
         counterText = findViewById(R.id.counterText);
         counterButton = findViewById(R.id.counterButton);
 
+        //Method 1 (Easier, more efficient)
+
+        counterButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                intCounter++;
+                counterText.setText(intCounter + " ");
+
+            }
+
+        });
+
+        //Method 2 (just an alternative)
+        /**
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         counterButton.setOnClickListener(listener);
-
-
+         **/
     }
+
 }
